@@ -7,17 +7,17 @@ define(_CLIENT_VERSION_BUILD, 4)
 define(_CLIENT_VERSION_IS_RELEASE, true)
 define(_COPYRIGHT_YEAR, 2020)
 define(_COPYRIGHT_HOLDERS,[The %s developers])
-define(_COPYRIGHT_HOLDERS_SUBSTITUTION,[[Pyrk Core]])
-AC_INIT([Pyrk Core],[_CLIENT_VERSION_MAJOR._CLIENT_VERSION_MINOR._CLIENT_VERSION_REVISION],[https://github.com/pyrkcommunity/pyrk/issues],[pyrk],[https://pyrk.org/])
+define(_COPYRIGHT_HOLDERS_SUBSTITUTION,[[Twilight Core]])
+AC_INIT([Twilight Core],[_CLIENT_VERSION_MAJOR._CLIENT_VERSION_MINOR._CLIENT_VERSION_REVISION],[https://github.com/Twilightcommunity/Twilight/issues],[Twilight],[https://Twilight.org/])
 AC_CONFIG_SRCDIR([src/validation.cpp])
 AC_CONFIG_HEADERS([src/config/dash-config.h])
 AC_CONFIG_AUX_DIR([build-aux])
 AC_CONFIG_MACRO_DIR([build-aux/m4])
 
-BITCOIN_DAEMON_NAME=pyrkd
-BITCOIN_GUI_NAME=pyrk-qt
-BITCOIN_CLI_NAME=pyrk-cli
-BITCOIN_TX_NAME=pyrk-tx
+BITCOIN_DAEMON_NAME=Twilightd
+BITCOIN_GUI_NAME=Twilight-qt
+BITCOIN_CLI_NAME=Twilight-cli
+BITCOIN_TX_NAME=Twilight-tx
 
 AC_CANONICAL_HOST
 
@@ -241,7 +241,7 @@ CPPFLAGS="$CPPFLAGS -DHAVE_BUILD_INFO -D__STDC_FORMAT_MACROS"
 
 AC_ARG_WITH([utils],
   [AS_HELP_STRING([--with-utils],
-  [build pyrk-cli pyrk-tx (default=yes)])],
+  [build Twilight-cli Twilight-tx (default=yes)])],
   [build_bitcoin_utils=$withval],
   [build_bitcoin_utils=yes])
 
@@ -253,7 +253,7 @@ AC_ARG_WITH([libs],
 
 AC_ARG_WITH([daemon],
   [AS_HELP_STRING([--with-daemon],
-  [build pyrkd daemon (default=yes)])],
+  [build Twilightd daemon (default=yes)])],
   [build_bitcoind=$withval],
   [build_bitcoind=yes])
 
@@ -917,11 +917,11 @@ AC_SUBST(UNIVALUE_LIBS)
 
 BITCOIN_QT_PATH_PROGS([PROTOC], [protoc],$protoc_bin_path)
 
-AC_MSG_CHECKING([whether to build pyrkd])
+AC_MSG_CHECKING([whether to build Twilightd])
 AM_CONDITIONAL([BUILD_BITCOIND], [test x$build_bitcoind = xyes])
 AC_MSG_RESULT($build_bitcoind)
 
-AC_MSG_CHECKING([whether to build utils (pyrk-cli pyrk-tx)])
+AC_MSG_CHECKING([whether to build utils (Twilight-cli Twilight-tx)])
 AM_CONDITIONAL([BUILD_BITCOIN_UTILS], [test x$build_bitcoin_utils = xyes])
 AC_MSG_RESULT($build_bitcoin_utils)
 
@@ -1022,7 +1022,7 @@ if test x$bitcoin_enable_qt != xno; then
     AC_MSG_WARN("xgettext is required to update qt translations")
   fi
 
-  AC_MSG_CHECKING([whether to build test_pyrk-qt])
+  AC_MSG_CHECKING([whether to build test_Twilight-qt])
   if test x$use_gui_tests$bitcoin_enable_qt_test = xyesyes; then
     AC_MSG_RESULT([yes])
     BUILD_TEST_QT="yes"
@@ -1033,7 +1033,7 @@ fi
 
 AM_CONDITIONAL([ENABLE_ZMQ], [test "x$use_zmq" = "xyes"])
 
-AC_MSG_CHECKING([whether to build test_pyrk])
+AC_MSG_CHECKING([whether to build test_Twilight])
 if test x$use_tests = xyes; then
   AC_MSG_RESULT([yes])
   BUILD_TEST="yes"
